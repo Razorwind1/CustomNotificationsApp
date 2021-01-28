@@ -25,7 +25,7 @@ Have you ever wanted to make your own custom notifications on your phone? We're 
 - Ability to have a randomly selected notification show from a group of notifications (eg: for custom rotating affirmations or prayers or quotes to memorize)
 - Trigger notifications based on location (GPS)
 
-_use our app for self-improvement: set reminders throughout the day to direct your thought-life, write custom affirmations to speak truth into your morning, let a re-orienting notification trigger whenever you arrive at work, and help yourself memorize the quotes or facts that are most meaningful to you._
+_Use our app for self-improvement: set reminders throughout the day to direct your thought-life, write custom affirmations to speak truth into your morning, let a re-orienting notification trigger whenever you arrive at work, and help yourself memorize the quotes or facts that are most meaningful to you._
 
 ## Storyboard
 
