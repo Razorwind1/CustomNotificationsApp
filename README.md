@@ -386,3 +386,7 @@ TODO: description
 - Integration Developers:
   - Mahesh Gowda
   - Christian Rosario
+
+## Meetings
+
+Our team is meeting Mondays 3:30-4:30 and Thursdays 9:00-9:30 using Microsoft Teams.
