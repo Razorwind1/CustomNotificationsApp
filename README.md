@@ -29,9 +29,9 @@ _Use our app for self-improvement: set reminders throughout the day to direct yo
 
 ## Storyboard
 
-[Custom Notifications InVision Storyboard](#urlToStoryboard)
+Take a look at our [interactive InVision storyboard](https://projects.invisionapp.com/prototype/MobileDev-InVision-for-CustomNotificationsApp-ckkkf2htj0060wu01zxv8loji/play/a80f6ab0)!
 
-![App main page](#pathOrLinkToImg)
+We also have images of our storyboards (and the InVision file) in the [Storyboards folder](https://github.com/Razorwind1/CustomNotificationsApp/tree/Storyboards/storyboards).
 
 ## Functional Requirements
 
