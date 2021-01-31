@@ -369,11 +369,11 @@ Notifications have a toggle checkbox in their row on the view all notifications 
 
 ## Class Diagram
 
-![Class Diagram](#pathOrLinkToDiagram)
+![Class Diagram](https://github.com/Razorwind1/CustomNotificationsApp/blob/master/cnappUML.png)
 
 ### Class Diagram Description
 
-TODO: description
+This is a diagram of the initial planned internal stucture of the applicaiton, with the classes, interfaces and databases. The dashed lines indicate that the relationship between the classes will be handled in the database with an intermediatary table in order to allow alarms and groups to be assigned to multiple attributes of one type, such as one alarm in two groups or three locations. The Place and Occurence classes are probably going to change because we want to outsource that to existing maps and calendar applications, which can also help users by being able ot sync their alarms with their schedule or location history. So, we will modify them as we research mapping (Google Maps) and calendar software APIs.
 
 ## Scrum Roles
 
