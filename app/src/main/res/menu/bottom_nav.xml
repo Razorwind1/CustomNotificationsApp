@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="@string/button_notifications" />
+    <item
+        android:id="@+id/groupsFragment"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="@string/button_groups" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/button_settings" />
+
+</menu>
