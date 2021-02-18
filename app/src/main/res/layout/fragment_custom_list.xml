@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:descendantFocusability="blocksDescendants">
+
+    <GridLayout
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="5"
+        android:rowCount="2">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:text="Title"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:paddingLeft="10sp"
+            android:text="Days"
+            android:textAlignment="viewStart"
+            android:textColor="#000CFF" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_rowSpan="2"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1" />
+
+        <TextView
+            android:id="@+id/Description"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:text="Description" />
+
+        <TextView
+            android:id="@+id/Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_rowSpan="1"
+            android:layout_rowWeight="2"
+            android:layout_columnSpan="1"
+            android:paddingLeft="10sp"
+            android:text="Time"
+            android:textAlignment="viewStart"
+            android:textColor="#0040FD"
+            tools:layout_columnWeight="1" />
+
+
+    </GridLayout>
+</LinearLayout>

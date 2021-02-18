@@ -19,14 +19,15 @@ class MainActivity : AppCompatActivity() {
         "Brush teeth for 2 minutes",
         "Eat so you don't feel like shit",
         "")
-
+    val days= arrayOf<String>("MWF","TFS","WTF")
+    val times= arrayOf<String>("1:30","13:15","8:30")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
         val lView= findViewById<ListView>(R.id.listView)
-        val myListAdapter = MyListAdapter(this,language,description)
+        val myListAdapter = MyListAdapter(this,language,description,days,times)
         lView.adapter = myListAdapter
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         )
         NavigationUI.setupWithNavController(bottomNavView, navController)
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
