@@ -1,17 +1,26 @@
 package edu.uc.hickmadc.customnotifications
 
+import edu.uc.hickmadc.customnotifications.dto.Notification
+import edu.uc.hickmadc.customnotifications.service.NotificationService
+import edu.uc.hickmadc.customnotifications.ui.main.MainViewModel
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.MutableLiveData
+import io.mockk.confirmVerified
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.verify
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.Before
+import org.junit.Rule
+import org.junit.rules.TestRule
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
+
 class ExampleUnitTest {
-    @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
-    }
+
+    @get:Rule
+    var rule: TestRule = InstantTaskExecutorRule()
+    lateinit var mvm: MainViewModel
+
 }
