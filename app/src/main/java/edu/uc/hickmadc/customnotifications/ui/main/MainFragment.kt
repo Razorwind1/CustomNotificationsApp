@@ -16,13 +16,6 @@ class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
 
-    /**
-     * Creates the view.
-     * @param inflater The layout inflater
-     * @param container the main view that contains sub-views
-     * @param savedInstanceState The current instance.
-     * @return The layout of the application's UI.
-     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,10 +24,6 @@ class MainFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
-    /**
-     * Connects to the MainViewModel.
-     * @param savedInstanceState The current instance.
-     */
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
