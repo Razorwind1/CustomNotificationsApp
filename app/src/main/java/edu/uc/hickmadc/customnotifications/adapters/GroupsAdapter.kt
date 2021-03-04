@@ -34,12 +34,6 @@ class GroupsAdapter(private val dataSet: ArrayList<Group>) :
 
     class GroupViewHolder(private val binding: ListItemGroupBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        init {
-            // Define click listener for the ViewHolder's View.
-//            binding.setClickListener {
-//                Logger.getAnonymousLogger().warning("Clicked group row")
-//            }
-        }
 
         fun bind(item: Group) {
             binding.apply {
@@ -52,7 +46,7 @@ class GroupsAdapter(private val dataSet: ArrayList<Group>) :
     private class GroupDiffCallback : DiffUtil.ItemCallback<Group>() {
 
         override fun areItemsTheSame(oldItem: Group, newItem: Group): Boolean {
-            return oldItem.group_id == newItem.group_id
+            return oldItem.groupId == newItem.groupId
         }
 
         override fun areContentsTheSame(oldItem: Group, newItem: Group): Boolean {

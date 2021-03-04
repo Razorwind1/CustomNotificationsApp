@@ -1,15 +1,15 @@
 package edu.uc.hickmadc.customnotifications.ui.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import edu.uc.hickmadc.customnotifications.adapters.GroupsAdapter
 import edu.uc.hickmadc.customnotifications.databinding.FragmentGroupsBinding
 import edu.uc.hickmadc.customnotifications.dto.Group
-import java.util.ArrayList
+import java.util.*
 
 class GroupsFragment : Fragment() {
 
@@ -26,7 +26,6 @@ class GroupsFragment : Fragment() {
     ): View? {
         _binding = FragmentGroupsBinding.inflate(inflater, container, false)
         val view = binding.root
-//        context ?: return binding.root
         val groups: ArrayList<Group> = viewModel.getAllGroups()
         val adapter =
             GroupsAdapter(groups)
