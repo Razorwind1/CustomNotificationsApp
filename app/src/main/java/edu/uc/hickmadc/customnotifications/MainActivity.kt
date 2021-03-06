@@ -11,12 +11,14 @@ import edu.uc.hickmadc.customnotifications.ui.main.MyListAdapter
 
 class MainActivity : AppCompatActivity() {
 
-    //temp data
+    /*
+        Temporary data
+     */
     val language = arrayOf<String>("Brush Teeth", "Eat Breakfast", "Do schoolwork")
     val description = arrayOf<String>(
         "Brush teeth for 2 minutes",
         "Eat so you don't feel like shit",
-        ""
+        "So you can pass code reviews!"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
