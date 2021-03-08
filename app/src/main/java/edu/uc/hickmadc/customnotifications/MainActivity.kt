@@ -14,8 +14,8 @@ import edu.uc.hickmadc.customnotifications.ui.main.MyListAdapter
 class MainActivity : AppCompatActivity() {
 
     //temp data
-    val language = arrayOf<String>("Brush Teeth","Eat Breakfast","Do schoolwork")
-    val description = arrayOf<String>(
+    private val language = arrayOf<String>("Brush Teeth","Eat Breakfast","Do schoolwork")
+    private val description = arrayOf<String>(
         "Brush teeth for 2 minutes",
         "Eat so you don't feel like shit",
         "")
