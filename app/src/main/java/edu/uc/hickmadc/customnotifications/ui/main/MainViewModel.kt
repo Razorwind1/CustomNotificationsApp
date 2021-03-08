@@ -6,12 +6,14 @@ import edu.uc.hickmadc.customnotifications.dto.Group
 import java.util.logging.Logger
 
 class MainViewModel : ViewModel() {
+    val groups : ArrayList<Group> = ArrayList()
+
+
     fun exampleClick() {
         Logger.getAnonymousLogger().warning("You just pressed the add group button")
     }
 
     fun getAllGroups() : ArrayList<Group> {
-        val groups : ArrayList<Group> = ArrayList()
         //placeholder, should be replaced by database call/live data
         with(groups) {
         add(Group(name = "Group1", desc = "This data is", active = true, same_schedule = false, group_id = 1))
