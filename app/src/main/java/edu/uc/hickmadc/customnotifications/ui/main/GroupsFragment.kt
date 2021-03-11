@@ -30,9 +30,10 @@ class GroupsFragment : Fragment() {
         val groups: ArrayList<Group> = viewModel.getAllGroups()
         val adapter =
             GroupsAdapter(groups)
-        binding.groupList.adapter = adapter
-        binding.fabAdd.setOnClickListener { viewModel.exampleClick() }
-
+        with(binding) {
+            groupList.adapter = adapter
+            fabAdd.setOnClickListener { viewModel.exampleClick() }
+        }
         return view
     }
 
