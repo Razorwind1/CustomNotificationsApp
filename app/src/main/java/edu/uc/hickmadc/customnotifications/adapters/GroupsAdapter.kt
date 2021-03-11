@@ -12,7 +12,9 @@ import edu.uc.hickmadc.customnotifications.dto.Group
 class GroupsAdapter(private val dataSet: ArrayList<Group>) :
     ListAdapter<Group, RecyclerView.ViewHolder>(GroupDiffCallback()) {
 
-    // Creates list rows / views
+    /**
+     * Creates list rows / views
+     */
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return GroupViewHolder(
             ListItemGroupBinding.inflate(
@@ -23,13 +25,18 @@ class GroupsAdapter(private val dataSet: ArrayList<Group>) :
         )
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
+    /**
+     * Replace the contents of a view (invoked by the layout manager)
+     * Gets a group from dataSet and bind it to the empty viewHolder
+     */
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         // get group from dataSet and bind it to the empty viewHolder
         (holder as GroupViewHolder).bind(dataSet[position])
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
+    /**
+     * Return the size of your dataset (invoked by the layout manager)
+     */
     override fun getItemCount() = dataSet.size
 
     class GroupViewHolder(private val binding: ListItemGroupBinding) :
@@ -49,10 +56,13 @@ class GroupsAdapter(private val dataSet: ArrayList<Group>) :
         }
     }
 
+    /**
+     * Handles the comparison between groups.
+     */
     private class GroupDiffCallback : DiffUtil.ItemCallback<Group>() {
 
         override fun areItemsTheSame(oldItem: Group, newItem: Group): Boolean {
-            return oldItem.group_id == newItem.group_id
+            return oldItem.groupId == newItem.groupId
         }
 
         override fun areContentsTheSame(oldItem: Group, newItem: Group): Boolean {
