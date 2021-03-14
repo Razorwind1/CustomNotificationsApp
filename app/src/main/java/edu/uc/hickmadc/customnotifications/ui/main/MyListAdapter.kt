@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.*
 import edu.uc.hickmadc.customnotifications.R
 
-class MyListAdapter(private val context: Activity, private val title: Array<String>, private val description: Array<String>)
+class MyListAdapter(private val context: Activity, private val title: Array<String>, private val description: Array<String>,private val days: Array<String>,private val times: Array<String>)
     : ArrayAdapter<String>(context, R.layout.custom_list, title) {
 
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
@@ -14,12 +14,21 @@ class MyListAdapter(private val context: Activity, private val title: Array<Stri
 
         val titleText = rowView.findViewById(R.id.title) as TextView
 
-        val subtitleText = rowView.findViewById(R.id.description) as TextView
+        val subtitleText = rowView.findViewById(R.id.Description) as TextView
+
+        val daysText= rowView.findViewById(R.id.days) as TextView
+
+        val timesText= rowView.findViewById<TextView>(R.id.Time)
+
+
 
         titleText.text = title[position]
 
         subtitleText.text = description[position]
 
+        daysText.text= days[position]
+
+        timesText.text= times[position]
         return rowView
     }
 }

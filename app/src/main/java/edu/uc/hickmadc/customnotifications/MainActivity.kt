@@ -11,20 +11,23 @@ import edu.uc.hickmadc.customnotifications.ui.main.MyListAdapter
 
 class MainActivity : AppCompatActivity() {
 
+
+
     //temp data
-    private val language = arrayOf<String>("Brush Teeth","Eat Breakfast","Do schoolwork")
-    private val description = arrayOf<String>(
+    val language = arrayOf<String>("Brush Teeth","Eat Breakfast","Do schoolwork")
+    val description = arrayOf<String>(
         "Brush teeth for 2 minutes",
         "Eat so you don't feel like shit",
         "")
-
+    val days= arrayOf<String>("MWF","TFS","WTF")
+    val times= arrayOf<String>("1:30","13:15","8:30")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
         val lView= findViewById<ListView>(R.id.listView)
-        val myListAdapter = MyListAdapter(this,language,description)
+        val myListAdapter = MyListAdapter(this,language,description,days, times)
         lView.adapter = myListAdapter
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
