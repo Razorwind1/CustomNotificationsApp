@@ -14,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import edu.uc.hickmadc.customnotifications.ui.main.MyListAdapter
 import edu.uc.hickmadc.customnotifications.ui.main.dialogfragment
 
+
 class MainActivity : AppCompatActivity() {
 
 

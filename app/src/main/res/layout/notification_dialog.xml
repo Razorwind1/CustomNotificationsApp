@@ -41,7 +41,7 @@
         android:inputType="textPersonName"
         android:text="Title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnclose" />
+        app:layout_constraintTop_toBottomOf="@+id/closeButton" />
 
     <Button
         android:id="@+id/btnconfirm"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/notificationText" />
 
     <Button
-        android:id="@+id/btnclose"
+        android:id="@+id/closeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
