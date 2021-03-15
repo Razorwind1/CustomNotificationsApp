@@ -2,7 +2,8 @@ package edu.uc.hickmadc.customnotifications.ui.main
 import android.app.Activity
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.TextView
 import edu.uc.hickmadc.customnotifications.R
 
 class MyListAdapter(private val context: Activity, private val title: Array<String>, private val description: Array<String>)

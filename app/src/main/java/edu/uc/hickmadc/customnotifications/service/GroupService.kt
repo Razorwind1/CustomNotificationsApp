@@ -17,11 +17,11 @@ class GroupService {
      * @return an arraylist of Group DTO objects.
      */
     fun getAllGroups() : ArrayList<Group>{
-        var groups : ArrayList<Group> = ArrayList()
+        val groups : ArrayList<Group> = ArrayList()
         //placeholder, should be replaced by database call/live data
-        groups.add(Group(name = "Group1", desc = "This data is", active = true, same_schedule = false, group_id = 1))
-        groups.add(Group(name = "Group2", desc = "set in the", active = false, same_schedule = false, group_id = 1))
-        groups.add(Group(name = "Group3", desc = "main view model", active = true, same_schedule = false, group_id = 2))
+        groups.add(Group(name = "Group1", desc = "This data is", active = true, same_schedule = false, groupId = 1))
+        groups.add(Group(name = "Group2", desc = "set in the", active = false, same_schedule = false, groupId = 1))
+        groups.add(Group(name = "Group3", desc = "main view model", active = true, same_schedule = false, groupId = 2))
         return groups
     }
 }
