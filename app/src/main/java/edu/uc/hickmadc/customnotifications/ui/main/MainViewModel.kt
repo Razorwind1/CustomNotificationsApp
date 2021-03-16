@@ -37,5 +37,5 @@ class MainViewModel : ViewModel() {
 
     internal var notifications: MutableLiveData<ArrayList<Notification>>
     get() {return _notifications}
-    set(value) {_notifications}
+    set(value) {_notifications = value}
 }
