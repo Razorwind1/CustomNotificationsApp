@@ -6,5 +6,5 @@ import edu.uc.hickmadc.customnotifications.dto.Alarm
 
 @Database(entities=arrayOf(Alarm::class), version=1)
 abstract class AlarmDatabase : RoomDatabase() {
-    abstract  fun AlarmDAO() : iAlarmDAO
+    abstract fun alarmDAO() : iAlarmDAO
 }

@@ -1,6 +1,8 @@
 package edu.uc.hickmadc.customnotifications.service
 
 import edu.uc.hickmadc.customnotifications.dto.Group
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 /**
  * GroupService class. Handles adding groups to the groups tab.
@@ -23,5 +25,12 @@ class GroupService {
         groups.add(Group(name = "Group2", desc = "set in the", active = false, same_schedule = false, groupId = 1))
         groups.add(Group(name = "Group3", desc = "main view model", active = true, same_schedule = false, groupId = 2))
         return groups
+    }
+
+    internal suspend fun fetchGroups (groupName: String)
+    {
+        withContext(Dispatchers.IO) {
+            val service = RetrofitClientInstance
+        }
     }
 }
