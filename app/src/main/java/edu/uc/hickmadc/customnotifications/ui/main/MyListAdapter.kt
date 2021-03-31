@@ -21,8 +21,6 @@ class MyListAdapter(private val context: Activity, private val title: Array<Stri
 
         val timesText= rowView.findViewById<TextView>(R.id.Time)
 
-
-
         titleText.text = title[position]
 
         subtitleText.text = description[position]
