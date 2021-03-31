@@ -12,7 +12,11 @@
         android:id="@+id/groupsFragment"
         android:name="edu.uc.hickmadc.customnotifications.ui.main.GroupsFragment"
         android:label="fragment_groups"
-        tools:layout="@layout/fragment_groups" />
+        tools:layout="@layout/fragment_groups" >
+        <action
+            android:id="@+id/action_groupsFragment_to_groupsDialog"
+            app:destination="@id/groupsDialog" />
+    </fragment>
     <fragment
         android:id="@+id/mainFragment"
         android:name="edu.uc.hickmadc.customnotifications.ui.main.MainFragment"
@@ -25,4 +29,8 @@
             android:id="@+id/action_mainFragment2_to_groupsFragment"
             app:destination="@id/groupsFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/groupsDialog"
+        android:name="edu.uc.hickmadc.customnotifications.ui.main.GroupsDialog"
+        android:label="GroupsDialog" />
 </navigation>

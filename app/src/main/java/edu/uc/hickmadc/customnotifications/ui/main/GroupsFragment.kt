@@ -1,15 +1,16 @@
 package edu.uc.hickmadc.customnotifications.ui.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import edu.uc.hickmadc.customnotifications.R
 import edu.uc.hickmadc.customnotifications.adapters.GroupsAdapter
 import edu.uc.hickmadc.customnotifications.databinding.FragmentGroupsBinding
 import edu.uc.hickmadc.customnotifications.dto.Group
-import java.util.ArrayList
 
 class GroupsFragment : Fragment() {
 
@@ -32,7 +33,9 @@ class GroupsFragment : Fragment() {
             GroupsAdapter(groups)
         with(binding) {
             groupList.adapter = adapter
-            fabAdd.setOnClickListener { viewModel.exampleClick() }
+            fabAdd.setOnClickListener {
+                findNavController().navigate(R.id.action_groupsFragment_to_groupsDialog)
+            }
         }
         return view
     }
