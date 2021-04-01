@@ -14,6 +14,14 @@ class MainViewModel : ViewModel() {
     private var _notification = Notification()
     private var _notifications : MutableLiveData<ArrayList<Notification>> = MutableLiveData<ArrayList<Notification>>()
 
+    internal var notification: Notification
+        get() {return _notification}
+        set(value) {_notification = value}
+
+    internal var notifications: MutableLiveData<ArrayList<Notification>>
+        get() {return _notifications}
+        set(value) {_notifications = value}
+
     /**
      * Debugging function for add group button.
      */
@@ -29,13 +37,4 @@ class MainViewModel : ViewModel() {
         groups = groupService.getAllGroups()
         return groups
     }
-
-
-    internal var notification: Notification
-    get() {return _notification}
-    set(value) {_notification = value}
-
-    internal var notifications: MutableLiveData<ArrayList<Notification>>
-    get() {return _notifications}
-    set(value) {_notifications = value}
 }

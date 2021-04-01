@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ListView
 import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -17,43 +16,15 @@ import edu.uc.hickmadc.customnotifications.ui.main.dialogfragment
 
 class MainActivity : AppCompatActivity() {
 
-
-
-
-
-
-    //temp data
-    val language = arrayOf<String>("Brush Teeth","Eat Breakfast","Do schoolwork")
-    val description = arrayOf<String>(
-        "Brush teeth for 2 minutes",
-        "Eat so you don't feel like shit",
-        "")
-    val days= arrayOf<String>("MWF","TFS","WTF")
-    val times= arrayOf<String>("1:30","13:15","8:30")
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
-
-        val lView= findViewById<ListView>(R.id.listView)
-        val myListAdapter = MyListAdapter(this,language,description,days, times)
-        lView.adapter = myListAdapter
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
         }
-        val addButton = findViewById<ImageButton>(R.id.btnAdd)
-        addButton.setOnClickListener{
-        var dialog= dialogfragment()
-
-        dialog.show(supportFragmentManager, "customdialog")
-
-
-        }
-
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
