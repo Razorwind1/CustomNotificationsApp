@@ -14,6 +14,7 @@ class GroupsAdapter(private val dataSet: ArrayList<Group>) :
 
     /**
      * Creates list rows / views
+     * @return populates the ViewHolder
      */
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return GroupViewHolder(
@@ -27,7 +28,7 @@ class GroupsAdapter(private val dataSet: ArrayList<Group>) :
 
     /**
      * Replace the contents of a view (invoked by the layout manager)
-     * Gets a group from dataSet and bind it to the empty viewHolder
+     * then gets a group from dataSet and bind it to the empty viewHolder
      */
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as GroupViewHolder).bind(dataSet[position])
@@ -51,6 +52,8 @@ class GroupsAdapter(private val dataSet: ArrayList<Group>) :
 
     /**
      * Handles the comparison between groups.
+     * @return [areItemsTheSame]
+     * @return [areContentsTheSame]
      */
     private class GroupDiffCallback : DiffUtil.ItemCallback<Group>() {
 

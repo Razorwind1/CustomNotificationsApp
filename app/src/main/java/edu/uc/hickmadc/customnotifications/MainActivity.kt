@@ -24,8 +24,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
         val lView = findViewById<ListView>(R.id.listView)
         val myListAdapter = MyListAdapter(this, language, description)
         lView.adapter = myListAdapter
@@ -40,6 +38,9 @@ class MainActivity : AppCompatActivity() {
         setupBottomNavigationBar()
     }
 
+    /**
+     * Sets up the navigation bar on the bottom of the screen.
+     */
     private fun setupBottomNavigationBar() {
         val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_nav)
 
