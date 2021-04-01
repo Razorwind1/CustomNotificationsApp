@@ -6,5 +6,5 @@ import edu.uc.hickmadc.customnotifications.dto.Group
 
 @Database(entities=arrayOf(Group::class), version = 1)
 abstract class GroupDatabase : RoomDatabase() {
-    abstract fun GroupDAO() : iGroupDAO
+    abstract fun groupDAO() : iGroupDAO
 }

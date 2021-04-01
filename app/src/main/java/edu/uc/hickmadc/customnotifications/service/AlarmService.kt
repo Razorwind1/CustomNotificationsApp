@@ -9,9 +9,9 @@ import edu.uc.hickmadc.customnotifications.dto.Alarm
 class AlarmService(private val application: Application) {
 
     /**
-     * Store notifications locally using Room database
+     * Store alarms locally using Room database
      */
-    private fun updateNotifications(alarms: ArrayList<Alarm>?) {
+    private fun updateAlarms(alarms: ArrayList<Alarm>?) {
         val alarmDAO = getAlarmDAO()
         alarms?.let{
             alarmDAO.insertAll(alarms)
@@ -20,15 +20,15 @@ class AlarmService(private val application: Application) {
 
 
     internal fun getAlarmDAO(): iAlarmDAO {
-        val db = Room.databaseBuilder(application, AlarmDatabase::class.java, "myNotifications").build()
+        val db = Room.databaseBuilder(application, AlarmDatabase::class.java, "myAlarms").build()
         return db.alarmDAO()
     }
 
-    internal fun save(notification: Alarm) {
-        getAlarmDAO().save(notification)
+    internal fun save(alarm: Alarm) {
+        getAlarmDAO().save(alarm)
     }
 
-    internal fun delete(notification: Alarm) {
-        getAlarmDAO().delete(notification)
+    internal fun delete(alarm: Alarm) {
+        getAlarmDAO().delete(alarm)
     }
 }
