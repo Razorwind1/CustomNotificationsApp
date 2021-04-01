@@ -35,6 +35,6 @@ class ExampleUnitTest {
     fun confirmsSchedule_outputsSchedule () {
         val cal = Calendar.getInstance()
         var scheduleTest: Schedule = Schedule(cal, 5, 1)
-        assertEquals(cal, scheduleTest.original_occurence);
+        assertEquals(cal, scheduleTest.originalOccurance);
     }
 }
