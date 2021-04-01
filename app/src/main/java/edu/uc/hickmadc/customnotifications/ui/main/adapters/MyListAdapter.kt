@@ -1,4 +1,4 @@
-package edu.uc.hickmadc.customnotifications.ui.main
+package edu.uc.hickmadc.customnotifications.ui.main.adapters
 import android.app.Activity
 import android.view.View
 import android.view.ViewGroup

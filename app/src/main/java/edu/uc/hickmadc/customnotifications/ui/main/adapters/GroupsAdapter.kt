@@ -1,4 +1,4 @@
-package edu.uc.hickmadc.customnotifications.adapters
+package edu.uc.hickmadc.customnotifications.ui.main.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
