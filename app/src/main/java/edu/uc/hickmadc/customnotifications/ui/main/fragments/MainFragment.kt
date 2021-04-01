@@ -1,19 +1,19 @@
-package edu.uc.hickmadc.customnotifications.ui.main
+package edu.uc.hickmadc.customnotifications.ui.main.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import edu.uc.hickmadc.customnotifications.R
+import edu.uc.hickmadc.customnotifications.ui.main.MainViewModel
 
 class MainFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() =
+            MainFragment()
     }
 
     private lateinit var viewModel: MainViewModel

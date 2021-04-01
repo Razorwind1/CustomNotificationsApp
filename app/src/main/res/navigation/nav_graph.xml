@@ -6,16 +6,16 @@
     app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="edu.uc.hickmadc.customnotifications.ui.main.SettingsFragment"
+        android:name="edu.uc.hickmadc.customnotifications.ui.main.fragments.SettingsFragment"
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/groupsFragment"
-        android:name="edu.uc.hickmadc.customnotifications.ui.main.GroupsFragment"
+        android:name="edu.uc.hickmadc.customnotifications.ui.main.fragments.GroupsFragment"
         android:label="fragment_groups"
         tools:layout="@layout/fragment_groups" />
     <fragment
         android:id="@+id/mainFragment"
-        android:name="edu.uc.hickmadc.customnotifications.ui.main.MainFragment"
+        android:name="edu.uc.hickmadc.customnotifications.ui.main.fragments.MainFragment"
         android:label="main_fragment"
         tools:layout="@layout/fragment_main">
         <action

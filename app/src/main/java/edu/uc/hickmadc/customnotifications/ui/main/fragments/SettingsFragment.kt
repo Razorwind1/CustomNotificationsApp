@@ -1,4 +1,4 @@
-package edu.uc.hickmadc.customnotifications.ui.main
+package edu.uc.hickmadc.customnotifications.ui.main.fragments
 
 import android.os.Bundle
 import androidx.preference.PreferenceFragmentCompat
