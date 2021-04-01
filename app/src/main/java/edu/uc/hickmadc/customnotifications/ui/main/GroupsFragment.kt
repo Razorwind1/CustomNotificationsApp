@@ -23,7 +23,7 @@ class GroupsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentGroupsBinding.inflate(inflater, container, false)
         val view = binding.root
 //        context ?: return binding.root
