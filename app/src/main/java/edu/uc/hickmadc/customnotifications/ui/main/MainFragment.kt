@@ -51,8 +51,8 @@ class MainFragment : Fragment() {
                     dialog.show(requireActivity().supportFragmentManager!!, "customdialog")
             }
 
-        val lView= view!!.findViewById<ListView>(R.id.listView)
-        val myListAdapter = MyListAdapter(activity!!,language,description,days, times)
+        val lView= requireView().findViewById<ListView>(R.id.listView)
+        val myListAdapter = MyListAdapter(requireActivity(),language,description,days, times)
         lView.adapter = myListAdapter
 
     }
