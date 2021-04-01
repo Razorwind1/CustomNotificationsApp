@@ -12,7 +12,9 @@ import edu.uc.hickmadc.customnotifications.R
 import android.widget.ListView
 
 
+
 class MainFragment : Fragment() {
+
 
  //temp data
    private val language = arrayOf<String>("Brush Teeth","Eat Breakfast","Do schoolwork")
@@ -31,7 +33,6 @@ class MainFragment : Fragment() {
 
 
     override fun onCreateView(
-
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
