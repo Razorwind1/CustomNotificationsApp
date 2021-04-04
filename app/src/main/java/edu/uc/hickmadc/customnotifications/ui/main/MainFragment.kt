@@ -20,7 +20,7 @@ class MainFragment : Fragment() {
         "Brush teeth for 2 minutes",
         "Eat so you don't feel like shit",
         "")
-   private val days= arrayOf<String>("MWF","TFS","WTF")
+   private val days= arrayOf<String>("MWF","TFS","WTF,SS")
    private val times= arrayOf<String>("1:30","13:15","8:30")
 
     companion object {

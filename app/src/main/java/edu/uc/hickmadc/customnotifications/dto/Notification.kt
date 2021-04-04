@@ -21,6 +21,9 @@ data class Notification(
     @ColumnInfo(name = "description")
     var desc: String = "",
 
+    @ColumnInfo(name = "days")
+    var days: String = "What days?",
+
     @PrimaryKey
     var notificationId: Int = 0
 ) {
