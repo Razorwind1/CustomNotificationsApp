@@ -1,40 +1,25 @@
 package edu.uc.hickmadc.customnotifications.ui.main
 
-import androidx.lifecycle.MutableLiveData
+import android.view.View
 import androidx.lifecycle.ViewModel
 import edu.uc.hickmadc.customnotifications.dto.Group
-import edu.uc.hickmadc.customnotifications.dto.Notification
-import edu.uc.hickmadc.customnotifications.service.GroupService
 import java.util.logging.Logger
 
 class MainViewModel : ViewModel() {
+    val groups : ArrayList<Group> = ArrayList()
 
-    var groups : ArrayList<Group> = ArrayList()
-    var groupService : GroupService = GroupService()
-    private var _notification = Notification()
-    private var _notifications : MutableLiveData<ArrayList<Notification>> = MutableLiveData<ArrayList<Notification>>()
 
-    internal var notification: Notification
-        get() {return _notification}
-        set(value) {_notification = value}
-
-    internal var notifications: MutableLiveData<ArrayList<Notification>>
-        get() {return _notifications}
-        set(value) {_notifications = value}
-
-    /**
-     * Debugging function for add group button.
-     */
     fun exampleClick() {
         Logger.getAnonymousLogger().warning("You just pressed the add group button")
     }
 
-    /**
-     * Fetch all groups.
-     * @return an ArrayList of groups
-     */
-    fun getAllGroups(): ArrayList<Group> {
-        groups = groupService.getAllGroups()
+    fun getAllGroups() : ArrayList<Group> {
+        //placeholder, should be replaced by database call/live data
+        with(groups) {
+        add(Group(name = "Group1", desc = "This data is", active = true, same_schedule = false, group_id = 1))
+        add(Group(name = "Group2", desc = "set in the", active = false, same_schedule = false, group_id = 1))
+        add(Group(name = "Group3", desc = "main view model", active = true, same_schedule = false, group_id = 2))
+        }
         return groups
     }
 }

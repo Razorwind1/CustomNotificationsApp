@@ -23,17 +23,18 @@ class GroupsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentGroupsBinding.inflate(inflater, container, false)
         val view = binding.root
 //        context ?: return binding.root
         val groups: ArrayList<Group> = viewModel.getAllGroups()
         val adapter =
             GroupsAdapter(groups)
-        with(binding) {
+        with(binding){
             groupList.adapter = adapter
             fabAdd.setOnClickListener { viewModel.exampleClick() }
         }
+
         return view
     }
 
