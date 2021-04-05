@@ -11,6 +11,10 @@ class MyListAdapter(private val context: Activity, private val title: Array<Stri
 
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
         val inflater = context.layoutInflater
+/**
+ * Gets the current position of the view, then spits out an inflated row view.
+ * @return an inflated list of items.
+ */
 
         val rowView = inflater.inflate(R.layout.custom_list, null, true)
 
