@@ -12,9 +12,11 @@ import edu.uc.hickmadc.customnotifications.dto.Group
 class GroupsAdapter(private val dataSet: ArrayList<Group>) :
     ListAdapter<Group, RecyclerView.ViewHolder>(GroupDiffCallback()) {
 
-    /**
-     * Creates list rows / views
-     */
+/**
+ * Creates list rows / views
+ * @return populates the ViewHolder
+ */
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return GroupViewHolder(
             ListItemGroupBinding.inflate(
