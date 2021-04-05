@@ -16,7 +16,7 @@ import java.io.PrintWriter
 import java.util.zip.Inflater
 
 
-class dialogfragment : DialogFragment() {
+class DialogPopupFragment: DialogFragment() {
 
     private lateinit var rootView: View
     private lateinit var notificationTitleText: TextView

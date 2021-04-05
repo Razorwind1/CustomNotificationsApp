@@ -10,8 +10,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import edu.uc.hickmadc.customnotifications.ui.main.MyListAdapter
-import edu.uc.hickmadc.customnotifications.ui.main.dialogfragment
+import edu.uc.hickmadc.customnotifications.ui.main.adapters.MyListAdapter
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +38,9 @@ class MainActivity : AppCompatActivity() {
             this,
             R.id.nav_host_fragment
         )
+        /**
+         * Sets up the navigation bar on the bottom of the screen.
+         */
         NavigationUI.setupWithNavController(bottomNavView, navController)
     }
 
