@@ -19,9 +19,9 @@ class GroupService {
     fun getAllGroups() : ArrayList<Group>{
         val groups : ArrayList<Group> = ArrayList()
         //placeholder, should be replaced by database call/live data
-        groups.add(Group(name = "Group1", desc = "This data is", active = true, same_schedule = false, groupId = 1))
-        groups.add(Group(name = "Group2", desc = "set in the", active = false, same_schedule = false, groupId = 2))
-        groups.add(Group(name = "Group3", desc = "main view model", active = true, same_schedule = false, groupId = 3))
+        groups.add(Group(name = "Group1", desc = "This data is", active = true, same_schedule = false))//, groupId = 1))
+        groups.add(Group(name = "Group2", desc = "set in the", active = false, same_schedule = false))//, groupId = 2))
+        groups.add(Group(name = "Group3", desc = "main view model", active = true, same_schedule = false))//, groupId = 3))
         return groups
     }
 }

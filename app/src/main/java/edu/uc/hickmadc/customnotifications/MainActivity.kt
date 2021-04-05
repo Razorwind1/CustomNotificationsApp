@@ -45,10 +45,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupBottomNavigationBar() {
         val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_nav)
 
-        val navController = Navigation.findNavController(
-            this,
-            R.id.nav_host_fragment
-        )
+        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         NavigationUI.setupWithNavController(bottomNavView, navController)
     }
 

@@ -41,7 +41,7 @@ class GroupsAdapter(private val dataSet: ArrayList<Group>) :
 //            }
         }
 
-        fun bind(item: Group) {
+        internal fun bind(item: Group) {
             binding.apply {
                 group = item
                 executePendingBindings()
