@@ -1,0 +1,6 @@
+<resources>
+    <dimen name="sm">12dp</dimen>
+    <dimen name="md">24dp</dimen>
+    <dimen name="lg">36dp</dimen>
+    <dimen name="xlg">48dp</dimen>
+</resources>
