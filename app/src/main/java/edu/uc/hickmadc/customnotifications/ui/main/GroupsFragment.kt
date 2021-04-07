@@ -27,7 +27,6 @@ class GroupsFragment : Fragment() {
     ): View {
         _binding = FragmentGroupsBinding.inflate(inflater, container, false)
         val view = binding.root
-//        context ?: return binding.root
         val groups: ArrayList<Group> = viewModel.getAllGroups()
         val adapter =
             GroupsAdapter(groups)

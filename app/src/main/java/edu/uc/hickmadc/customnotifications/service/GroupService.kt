@@ -16,12 +16,45 @@ class GroupService {
      * groups.
      * @return an arraylist of Group DTO objects.
      */
-    fun getAllGroups() : ArrayList<Group>{
-        val groups : ArrayList<Group> = ArrayList()
+    fun getAllGroups(): ArrayList<Group> {
+        val groups: ArrayList<Group> = ArrayList()
         //placeholder, should be replaced by database call/live data
-        groups.add(Group(name = "Group1", desc = "This data is", active = true, same_schedule = false, groupId = 1))
-        groups.add(Group(name = "Group2", desc = "set in the", active = false, same_schedule = false, groupId = 2))
-        groups.add(Group(name = "Group3", desc = "main view model", active = true, same_schedule = false, groupId = 3))
+        groups.add(
+            Group(
+                name = "Group1",
+                desc = "This data is",
+                active = true,
+                same_schedule = false,
+                groupId = 1
+            )
+        )
+        groups.add(
+            Group(
+                name = "Group2",
+                desc = "set in the",
+                active = false,
+                same_schedule = false,
+                groupId = 2
+            )
+        )
+        groups.add(
+            Group(
+                name = "Group3",
+                desc = "main view model",
+                active = true,
+                same_schedule = false,
+                groupId = 3
+            )
+        )
         return groups
+    }
+
+    fun createGroup(group: Group): Int {
+        // TODO: do better validation and database insert
+        return if (group.name.isNotEmpty()) {
+            0
+        } else {
+            1
+        }
     }
 }

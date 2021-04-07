@@ -31,6 +31,6 @@
     </fragment>
     <dialog
         android:id="@+id/groupsDialog"
-        android:name="edu.uc.hickmadc.customnotifications.ui.main.GroupsDialog"
+        android:name="edu.uc.hickmadc.customnotifications.ui.dialog.GroupsDialog"
         android:label="GroupsDialog" />
 </navigation>
