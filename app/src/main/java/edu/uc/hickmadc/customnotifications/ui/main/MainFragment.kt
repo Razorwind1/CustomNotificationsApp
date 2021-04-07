@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import edu.uc.hickmadc.customnotifications.R
 import android.widget.ListView
-
+import androidx.core.app.NotificationCompat
 
 
 class MainFragment : Fragment() {
@@ -57,5 +57,6 @@ class MainFragment : Fragment() {
         lView.adapter = myListAdapter
 
     }
+    
 
 }
