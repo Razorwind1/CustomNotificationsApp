@@ -22,7 +22,7 @@ data class Notification(
     var desc: String = "",
 
     @ColumnInfo(name = "days")
-    var days: String = "What days?",
+    var days: String = "What days would you like?",
 
     @PrimaryKey
     var notificationId: Int = 0
