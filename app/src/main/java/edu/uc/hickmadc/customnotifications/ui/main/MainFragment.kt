@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -30,6 +31,7 @@ class MainFragment : Fragment() {
     }
 
     private lateinit var viewModel: MainViewModel
+    private lateinit var dialogfragment: dialogfragment
 
 
     override fun onCreateView(
@@ -55,6 +57,21 @@ class MainFragment : Fragment() {
         val lView= requireView().findViewById<ListView>(R.id.listView)
         val myListAdapter = MyListAdapter(requireActivity(),language,description,days, times)
         lView.adapter = myListAdapter
+        lView.setOnItemClickListener{parent: AdapterView<*>, view:View, position:Int, id:Long ->
+            var clickposition= position.toString()
+
+
+
+            dialogfragment.show(requireActivity().supportFragmentManager!!,"editdialog")
+
+
+        }
+
+
+
+
+
+
 
     }
     
