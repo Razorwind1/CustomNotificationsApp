@@ -37,4 +37,5 @@ class MainViewModel : ViewModel() {
         groups = groupService.getAllGroups()
         return groups
     }
+
 }

@@ -6,14 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Switch
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentContainer
 import edu.uc.hickmadc.customnotifications.R
 import edu.uc.hickmadc.customnotifications.dto.Notification
-import java.io.FileDescriptor
-import java.io.PrintWriter
-import java.util.zip.Inflater
 
 
 class dialogfragment: DialogFragment() {
@@ -29,7 +26,7 @@ class dialogfragment: DialogFragment() {
         //gets dialog fragment
         rootView = inflater.inflate(R.layout.notification_dialog, container, false)
 
-        notificationTitleText = rootView.findViewById(R.id.txtTitle)
+        notificationTitleText = rootView.findViewById(R.id.txtTime)
         notificationSubtext = rootView.findViewById(R.id.txtSubtext)
         notificationText = rootView.findViewById(R.id.notificationText)
 
@@ -43,6 +40,8 @@ class dialogfragment: DialogFragment() {
         //gets ids for buttons
         var btnClose = rootView.findViewById<ImageButton>(R.id.closeButton)
         var btnConfirm = rootView.findViewById<Button>(R.id.btnconfirm)
+        var switch= rootView.findViewById<Switch>(R.id.SWTriggerToggle)
+
         btnClose.setOnClickListener {
             dismiss()
         }
@@ -55,6 +54,19 @@ class dialogfragment: DialogFragment() {
                 notificationText.text.toString(),
                 0
             )
+        }
+        switch.setOnClickListener{
+            var switchText= switch.text
+            if (switchText.equals("Time")){
+                switch.text= "Location"
+            }else{
+                switch.text="Time"
+                var dialog= timeDialogFragment()
+
+                dialog.show(requireActivity().supportFragmentManager!!, "customdialog")
+            }
+
+
         }
 
     }
