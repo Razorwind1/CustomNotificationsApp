@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import edu.uc.hickmadc.customnotifications.R
 import android.widget.ListView
-
+import androidx.fragment.app.viewModels
 
 
 class MainFragment : Fragment() {
@@ -30,24 +30,25 @@ class MainFragment : Fragment() {
     }
 
     private lateinit var viewModel: MainViewModel
+    private val notificationViewModel: NotificationViewModel by viewModels(ownerProducer = { this })
 
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         return inflater.inflate(R.layout.fragment_main, container, false)
-
     }
 
+    /*
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
           val addButton = view?.findViewById<ImageButton>(R.id.btnAdd)
                 addButton?.setOnClickListener{
-                    var dialog= dialogfragment()
+                    var dialog = DialogPopupFragment()
 
                     dialog.show(requireActivity().supportFragmentManager!!, "customdialog")
             }
@@ -57,5 +58,21 @@ class MainFragment : Fragment() {
         lView.adapter = myListAdapter
 
     }
+     */
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        val btnAdd = view?.findViewById<ImageButton>(R.id.btnAdd)
+        btnAdd?.setOnClickListener {
+            var dialog = DialogPopupFragment()
+            //dialog.show(requireActivity().childFragmentManager!!, "customDialog")
+            dialog.show(childFragmentManager, "customDialog")
+
+        }
+
+    }
+
 
 }
