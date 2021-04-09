@@ -18,8 +18,7 @@ class NotificationService(private val application: Application) {
         }
     }
 
-
-    internal fun getNotificationDAO(): INotificationDAO {
+    private fun getNotificationDAO(): INotificationDAO {
         val db = Room.databaseBuilder(application, NotificationDatabase::class.java, "myNotifications").build()
         return db.notificationDAO()
     }
@@ -30,5 +29,16 @@ class NotificationService(private val application: Application) {
 
     internal fun delete(notification: Notification) {
         getNotificationDAO().delete(notification)
+    }
+
+    internal fun update(notification: Notification) {
+        getNotificationDAO().update(notification)
+    }
+
+    /**
+     * Test function
+     */
+    internal fun search(notificationTitle: String) {
+        getNotificationDAO().findNotificationWithTitle(notificationTitle)
     }
 }

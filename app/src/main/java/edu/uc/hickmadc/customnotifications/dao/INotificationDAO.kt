@@ -16,13 +16,16 @@ interface INotificationDAO {
     @Insert
     fun save(notification : Notification)
 
+    @Update
+    fun update(notification : Notification)
+
     @Delete
     fun delete(notification : Notification)
 
     /**
      * Test query
-     * @return latest notification
+     * @return notification with title
      */
-    @Query("SELECT * FROM notification ORDER BY notificationId DESC LIMIT 1")
-    fun getLatestNotification() : Notification?
+    @Query("SELECT * FROM notification WHERE title = :notificationTitle ")
+    fun findNotificationWithTitle(notificationTitle: String): LiveData<List<Notification>>
 }
