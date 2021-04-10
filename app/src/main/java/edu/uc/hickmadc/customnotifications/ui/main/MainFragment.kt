@@ -5,11 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import edu.uc.hickmadc.customnotifications.R
-import android.widget.ListView
 import androidx.fragment.app.viewModels
 
 
@@ -28,7 +27,6 @@ class MainFragment : Fragment() {
     companion object {
         fun newInstance() = MainFragment()
     }
-
     private lateinit var viewModel: MainViewModel
     private val notificationViewModel: NotificationViewModel by viewModels(ownerProducer = { this })
 
@@ -62,17 +60,11 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         val btnAdd = view?.findViewById<ImageButton>(R.id.btnAdd)
         btnAdd?.setOnClickListener {
-            var dialog = DialogPopupFragment()
-            //dialog.show(requireActivity().childFragmentManager!!, "customDialog")
+            val dialog = DialogPopupFragment()
             dialog.show(childFragmentManager, "customDialog")
-
         }
-
     }
-
-
 }

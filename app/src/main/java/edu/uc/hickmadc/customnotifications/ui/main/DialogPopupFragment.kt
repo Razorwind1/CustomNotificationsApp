@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import edu.uc.hickmadc.customnotifications.R
@@ -20,7 +21,6 @@ class DialogPopupFragment: DialogFragment() {
     private lateinit var notificationSubtext: TextView
     private lateinit var notificationDescription: TextView
     private val notificationViewModel: NotificationViewModel by viewModels(ownerProducer = { requireParentFragment() })
-    private var notification = Notification()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -42,31 +42,25 @@ class DialogPopupFragment: DialogFragment() {
         //gets ids for buttons
         val btnClose = rootView.findViewById<ImageButton>(R.id.btnClose)
         val btnConfirm = rootView.findViewById<Button>(R.id.btnConfirm)
+
         btnClose.setOnClickListener {
             dismiss()
         }
 
         btnConfirm.setOnClickListener {
-            /*
-            var notificationToAdd = Notification(
-                notificationTitle.text.toString(),
-                notificationSubtext.text.toString(),
-                notificationDescription.text.toString(),
-            )
-             */
-
             saveNotification()
             dismiss()
         }
     }
 
-    internal fun saveNotification() {
-        notification.apply {
-            title = notificationTitle.text.toString()
-            subtext = notificationSubtext.text.toString()
-            desc = notificationDescription.text.toString()
-        }
+    private fun saveNotification() {
+        val notification = Notification(
+            notificationTitle.text.toString(),
+            notificationSubtext.text.toString(),
+            notificationDescription.text.toString()
+        )
+        notificationViewModel.notification = notification
         notificationViewModel.saveNotification(notification)
+        Toast.makeText(activity, notificationViewModel.notification.toString(), Toast.LENGTH_SHORT).show()
     }
 }
-
