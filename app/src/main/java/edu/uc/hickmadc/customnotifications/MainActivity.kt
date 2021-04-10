@@ -1,18 +1,15 @@
 package edu.uc.hickmadc.customnotifications
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import edu.uc.hickmadc.customnotifications.ui.main.MyListAdapter
-import edu.uc.hickmadc.customnotifications.ui.main.dialogfragment
-
+import edu.uc.hickmadc.customnotifications.Constants.CUSTOM_NOTIFICATIONS_CHANNEL
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             setupBottomNavigationBar()
+            createNotificationChannel()
         }
     }
 
@@ -45,5 +43,18 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    private fun createNotificationChannel() {
+        val channel = NotificationChannel(
+            CUSTOM_NOTIFICATIONS_CHANNEL,
+            "All Custom Notifications",
+            NotificationManager.IMPORTANCE_DEFAULT
+        ).apply {
+            description = "All notifications"
+        }
+        val notificationManager: NotificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
     }
 }
