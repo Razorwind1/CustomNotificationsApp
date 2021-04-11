@@ -48,19 +48,19 @@ class DialogPopupFragment: DialogFragment() {
         }
 
         btnConfirm.setOnClickListener {
-            saveNotification()
+//            saveNotification()
             dismiss()
         }
     }
 
-    private fun saveNotification() {
-        val notification = Notification(
-            notificationTitle.text.toString(),
-            notificationSubtext.text.toString(),
-            notificationDescription.text.toString()
-        )
-        notificationViewModel.notification = notification
-        notificationViewModel.saveNotification(notification)
-        Toast.makeText(activity, notificationViewModel.notification.toString(), Toast.LENGTH_SHORT).show()
-    }
+//    private fun saveNotification() {
+//        val notification = Notification(
+//            notificationTitle.text.toString(),
+//            notificationSubtext.text.toString(),
+//            notificationDescription.text.toString()
+//        )
+//        notificationViewModel.notification = notification
+//        notificationViewModel.saveNotification(notification)
+//        Toast.makeText(activity, notificationViewModel.notification.toString(), Toast.LENGTH_SHORT).show()
+//    }
 }

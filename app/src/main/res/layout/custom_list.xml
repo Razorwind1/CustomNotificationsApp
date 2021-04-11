@@ -44,7 +44,7 @@
             android:textColor="#3F51B5" />
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/active"
             android:layout_width="1dp"
             android:layout_height="wrap_content"
             android:layout_row="0"

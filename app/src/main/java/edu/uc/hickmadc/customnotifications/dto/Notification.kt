@@ -1,6 +1,8 @@
 package edu.uc.hickmadc.customnotifications.dto
 
-import androidx.room.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 /**
  * The Notification DTO.
@@ -21,7 +23,7 @@ data class Notification(
     @ColumnInfo(name = "description")
     var desc: String = "",
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     var notificationId: Int = 0
 ) {
     override fun toString(): String {

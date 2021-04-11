@@ -1,31 +1,29 @@
 package edu.uc.hickmadc.customnotifications.dao
 
-import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Query
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Update
+import androidx.room.Delete
 import edu.uc.hickmadc.customnotifications.dto.Notification
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface INotificationDAO {
 
     @Query("SELECT * FROM notification")
-    fun getAllNotifications() : LiveData<List<Notification>>
+    fun getAllNotifications(): Flow<List<Notification>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(notifications : ArrayList<Notification>)
+    suspend fun insert(notification: Notification)
 
     @Insert
-    fun save(notification : Notification)
+    suspend fun save(notification: Notification)
 
     @Update
-    fun update(notification : Notification)
+    suspend fun update(notification: Notification)
 
     @Delete
-    fun delete(notification : Notification)
-
-    /**
-     * Test query
-     * @return notification with title
-     */
-    @Query("SELECT * FROM notification WHERE title = :notificationTitle ")
-    fun findNotificationWithTitle(notificationTitle: String): LiveData<List<Notification>>
+    suspend fun delete(notification: Notification)
 }
