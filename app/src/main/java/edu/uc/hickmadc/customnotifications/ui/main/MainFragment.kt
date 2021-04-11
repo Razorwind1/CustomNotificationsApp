@@ -29,7 +29,7 @@ class MainFragment : Fragment() {
         binding.apply {
             btnAdd.setOnClickListener {
                 DialogPopupFragment()
-                    .show(requireActivity().supportFragmentManager, "customdialog")
+                    .show(childFragmentManager, "customdialog")
             }
             listView.apply {
                 adapter = notificationsAdapter

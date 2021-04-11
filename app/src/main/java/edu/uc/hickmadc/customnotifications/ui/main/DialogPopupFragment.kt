@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import edu.uc.hickmadc.customnotifications.R
@@ -48,19 +47,18 @@ class DialogPopupFragment: DialogFragment() {
         }
 
         btnConfirm.setOnClickListener {
-//            saveNotification()
+            saveNotification()
             dismiss()
         }
     }
 
-//    private fun saveNotification() {
-//        val notification = Notification(
-//            notificationTitle.text.toString(),
-//            notificationSubtext.text.toString(),
-//            notificationDescription.text.toString()
-//        )
-//        notificationViewModel.notification = notification
-//        notificationViewModel.saveNotification(notification)
-//        Toast.makeText(activity, notificationViewModel.notification.toString(), Toast.LENGTH_SHORT).show()
-//    }
+    private fun saveNotification() {
+        notificationViewModel.saveNotification(
+            Notification(
+                notificationTitle.text.toString(),
+                notificationSubtext.text.toString(),
+                notificationDescription.text.toString()
+            )
+        )
+    }
 }
