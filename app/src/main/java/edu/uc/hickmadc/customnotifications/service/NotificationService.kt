@@ -1,45 +1,26 @@
 package edu.uc.hickmadc.customnotifications.service
 
-import android.app.Application
-import androidx.lifecycle.LiveData
-import androidx.room.Room
 import edu.uc.hickmadc.customnotifications.dao.INotificationDAO
-import edu.uc.hickmadc.customnotifications.dao.NotificationDatabase
 import edu.uc.hickmadc.customnotifications.dto.Notification
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class NotificationService(private val application: Application) {
+@Singleton
+class NotificationService @Inject constructor(
+    private val notificationDao: INotificationDAO
+) {
 
-    /**
-     * Store notifications locally using Room database
-     */
-    private fun updateNotifications(notifications: ArrayList<Notification>?) {
-        val notificationDAO = getNotificationDAO()
-        notifications?.let{
-            notificationDAO.insertAll(notifications)
-        }
+    fun getNotifications() = notificationDao.getAllNotifications()
+
+    suspend fun save(notification: Notification) {
+        notificationDao.save(notification)
     }
 
-    private fun getNotificationDAO(): INotificationDAO {
-        val db = Room.databaseBuilder(application, NotificationDatabase::class.java, "myNotifications").build()
-        return db.notificationDAO()
+    suspend fun delete(notification: Notification) {
+        notificationDao.delete(notification)
     }
 
-    internal fun save(notification: Notification) {
-        getNotificationDAO().save(notification)
-    }
-
-    internal fun delete(notification: Notification) {
-        getNotificationDAO().delete(notification)
-    }
-
-    internal fun update(notification: Notification) {
-        getNotificationDAO().update(notification)
-    }
-
-    /**
-     * Test function
-     */
-    internal fun search(notificationTitle: String): LiveData<List<Notification>> {
-        return getNotificationDAO().findNotificationWithTitle(notificationTitle)
+    suspend fun update(notification: Notification) {
+        notificationDao.update(notification)
     }
 }
