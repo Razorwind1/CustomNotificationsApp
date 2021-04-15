@@ -1,7 +1,9 @@
 package edu.uc.hickmadc.customnotifications.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -28,12 +30,23 @@ class NotificationsAdapter :
         fun bind(item: Notification) {
             binding.apply {
                 title.text = item.title
+                subtext.text= item.subtext
                 active.isChecked = false
                 // TODO add the other fields
             }
         }
     }
+    class ExampleViewHolder(itemView: View):RecyclerView.ViewHolder(itemView),
+    View.OnClickListener{
 
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(p0: View?) {
+
+        }
+    }
     class DiffCallback : DiffUtil.ItemCallback<Notification>() {
         override fun areItemsTheSame(oldItem: Notification, newItem: Notification): Boolean =
             oldItem.notificationId == newItem.notificationId
@@ -41,4 +54,5 @@ class NotificationsAdapter :
         override fun areContentsTheSame(oldItem: Notification, newItem: Notification): Boolean =
             oldItem == newItem
     }
+
 }
