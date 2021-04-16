@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools= "http://schemas.android.com/tools">
+<data class="">
+    <variable
+        name="clickListener"
+        type="android.view.View.OnClickListener" />
+</data>
+<androidx.cardview.widget.CardView android:id="@+id/cards"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_margin="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:onClick="@{clickListener}"
+    android:foreground="?android:selectableItemBackground"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<GridLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:columnCount="4"
     android:padding="8dp"
-    tools:layout_rowWeight="2">
+    tools:layout_rowWeight="2"
+
+    >
 
     <!--<CheckBox
         android:id="@+id/active"
@@ -84,3 +108,5 @@
         android:layout_column="3"
         android:paddingStart="10sp" />
 </GridLayout>
+</androidx.cardview.widget.CardView>
+    </layout>

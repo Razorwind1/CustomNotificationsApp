@@ -45,6 +45,13 @@ abstract class NotificationDatabase : RoomDatabase() {
                         "A description"
                     )
                 )
+                dao.insert(
+                    Notification(
+                        "Notification 4 ",
+                        "A fourth notification",
+                        "A  fourth description"
+                    )
+                )
             }
         }
     }
