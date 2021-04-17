@@ -3,6 +3,7 @@ package edu.uc.hickmadc.customnotifications.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -26,6 +27,11 @@ class NotificationsAdapter :
 
     class NotificationViewHolder(private val binding: ListItemNotificationBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        init {
+            binding.setClickListener {
+                    view ->  Toast.makeText(view.context,"hello${position}", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         fun bind(item: Notification) {
             binding.apply {
@@ -36,17 +42,7 @@ class NotificationsAdapter :
             }
         }
     }
-    class ExampleViewHolder(itemView: View):RecyclerView.ViewHolder(itemView),
-    View.OnClickListener{
 
-        init {
-            itemView.setOnClickListener(this)
-        }
-
-        override fun onClick(p0: View?) {
-
-        }
-    }
     class DiffCallback : DiffUtil.ItemCallback<Notification>() {
         override fun areItemsTheSame(oldItem: Notification, newItem: Notification): Boolean =
             oldItem.notificationId == newItem.notificationId
