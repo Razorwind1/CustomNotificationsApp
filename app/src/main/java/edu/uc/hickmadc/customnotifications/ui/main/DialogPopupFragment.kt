@@ -41,7 +41,11 @@ class DialogPopupFragment: DialogFragment() {
         //gets ids for buttons
         val btnClose = rootView.findViewById<ImageButton>(R.id.btnClose)
         val btnConfirm = rootView.findViewById<Button>(R.id.btnConfirm)
+        val btnTriggers=rootView.findViewById<Button>(R.id.btnaddTriggers)
 
+        btnTriggers.setOnClickListener{
+
+        }
         btnClose.setOnClickListener {
             dismiss()
         }
