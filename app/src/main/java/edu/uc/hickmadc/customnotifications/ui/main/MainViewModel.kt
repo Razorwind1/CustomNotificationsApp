@@ -10,6 +10,8 @@ class MainViewModel : ViewModel() {
     var groups : ArrayList<Group> = ArrayList()
     var groupService : GroupService = GroupService()
 
+
+
     /**
      * Debugging function for add group button.
      */

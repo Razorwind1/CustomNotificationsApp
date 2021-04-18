@@ -1,15 +1,20 @@
 package edu.uc.hickmadc.customnotifications.adapters
 
+import android.content.Intent
+import android.text.method.DialerKeyListener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.view.menu.ActionMenuItemView
+import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import edu.uc.hickmadc.customnotifications.R
 import edu.uc.hickmadc.customnotifications.databinding.ListItemNotificationBinding
 import edu.uc.hickmadc.customnotifications.dto.Notification
+import edu.uc.hickmadc.customnotifications.ui.main.ManagePopupFragment
 
 class NotificationsAdapter :
     ListAdapter<Notification, NotificationsAdapter.NotificationViewHolder>(DiffCallback()) {
@@ -28,8 +33,11 @@ class NotificationsAdapter :
     class NotificationViewHolder(private val binding: ListItemNotificationBinding) :
         RecyclerView.ViewHolder(binding.root) {
         init {
-            binding.setClickListener {
-                    view ->  Toast.makeText(view.context,"hello${position}", Toast.LENGTH_SHORT).show()
+
+            binding.setClickListener { view ->
+                Toast.makeText(view.context,"the notification is ${binding.title.text}",Toast.LENGTH_SHORT).show()
+                findNavController(view).navigate(R.id.action_mainFragment_to_managePopupFragment)
+
             }
         }
 
