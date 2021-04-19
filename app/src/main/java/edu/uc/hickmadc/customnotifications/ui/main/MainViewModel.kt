@@ -7,14 +7,24 @@ import java.util.logging.Logger
 
 class MainViewModel : ViewModel() {
 
-    var groups : ArrayList<Group> = ArrayList()
-    var groupService : GroupService = GroupService()
+    var groups: ArrayList<Group> = ArrayList()
+    var groupService: GroupService = GroupService()
 
     /**
      * Debugging function for add group button.
      */
     fun exampleClick() {
         Logger.getAnonymousLogger().warning("You just pressed the add group button")
+    }
+
+    /**
+     * Uses group service to create new group in database
+     *
+     * @param group The Group object to save
+     */
+    fun createGroup(group: Group): Int {
+        Logger.getAnonymousLogger().warning(group.toString())
+        return groupService.createGroup(group)
     }
 
     /**

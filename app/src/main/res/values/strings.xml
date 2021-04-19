@@ -8,4 +8,18 @@
     <string name="channel_name">Custom Notifications</string>
     <string name="channel_desc">User generated notifications</string>
     <string name="active_text">Active</string>
+    <string name="group_fab_desc">Add new group button</string>
+    <string name="group_dialog_name_hint">Group Name</string>
+    <string name="group_dialog_start_hint">Start Date</string>
+    <string name="group_dialog_time_hint">Time</string>
+    <string name="group_dialog_end_hint">End Date</string>
+    <string name="group_dialog_interval">Repeat on Days</string>
+    <string name="week_sun">Sn</string>
+    <string name="week_mon">M</string>
+    <string name="week_tue">T</string>
+    <string name="week_wed">W</string>
+    <string name="week_thu">Th</string>
+    <string name="week_fri">F</string>
+    <string name="week_sat">S</string>
+    <string name="group_dialog_desc_hint">Group Description</string>
 </resources>

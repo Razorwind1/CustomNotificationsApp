@@ -28,7 +28,7 @@ class ExampleUnitTest {
     @Test
     fun confirmsGroup_outputsGroup () {
         var groupTest: Group = Group("Testing Group", "Test for class", true, false, 1)
-        assertEquals("Testing Group", groupTest.toString());
+        assertEquals("id: 1, name: Testing Group, desc: Test for class, active: true, same_schedule: false", groupTest.toString());
     }
 
     @Test
