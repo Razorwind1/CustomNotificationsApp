@@ -31,13 +31,5 @@
     <dialog
         android:id="@+id/dialogPopupFragment"
         android:name="edu.uc.hickmadc.customnotifications.ui.main.DialogPopupFragment"
-        android:label="DialogPopupFragment" >
-        <action
-            android:id="@+id/action_dialogPopupFragment_to_triggersFragment"
-            app:destination="@id/triggersFragment" />
-    </dialog>
-    <dialog
-        android:id="@+id/triggersFragment"
-        android:name="edu.uc.hickmadc.customnotifications.ui.main.TriggersFragment"
-        android:label="TriggersFragment" />
+        android:label="DialogPopupFragment" />
 </navigation>

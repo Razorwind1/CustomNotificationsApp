@@ -53,7 +53,7 @@ class DialogPopupFragment: DialogFragment() {
         val btnTriggers=rootView.findViewById<Button>(R.id.btnaddTriggers)
 
         btnTriggers.setOnClickListener{
-            findNavController().navigate(R.id.action_dialogPopupFragment_to_triggersFragment)
+
 
         }
         btnClose.setOnClickListener {
