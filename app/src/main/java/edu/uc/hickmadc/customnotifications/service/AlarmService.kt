@@ -11,10 +11,9 @@ import edu.uc.hickmadc.customnotifications.receiver.AlarmReceiver
 class AlarmService(private val context: Context) {
     private val alarmManager: AlarmManager? =
         context.getSystemService(Context.ALARM_SERVICE) as? AlarmManager
-    private lateinit var alarmIntent: PendingIntent
 
-    fun setSingleAlarm(triggerMillis: Long, notification: Notification) {
-        alarmIntent = Intent(context, AlarmReceiver::class.java).let { intent ->
+    private fun buildIntent(notification: Notification): PendingIntent {
+        return Intent(context, AlarmReceiver::class.java).let { intent ->
             with(intent) {
                 putExtra("EXTRA_NOTIFICATION_TITLE", notification.title)
                 putExtra("EXTRA_NOTIFICATION_DESC", notification.desc)
@@ -22,10 +21,35 @@ class AlarmService(private val context: Context) {
             }
             PendingIntent.getBroadcast(context, 0, intent, 0)
         }
+    }
+
+    fun setSingleAlarm(triggerMillis: Long, notification: Notification) {
         alarmManager?.set(
             AlarmManager.ELAPSED_REALTIME_WAKEUP,
             SystemClock.elapsedRealtime() + triggerMillis,
-            alarmIntent
+            buildIntent(notification)
+        )
+    }
+
+    fun setRepeatingAlarm(notification: Notification, triggerMillis: Long, intervalMillis: Long) {
+        alarmManager?.setRepeating(
+            AlarmManager.RTC_WAKEUP,
+            triggerMillis,
+            intervalMillis,
+            buildIntent(notification)
+        )
+    }
+
+    fun setInexactRepeatingAlarm(
+        notification: Notification,
+        triggerMillis: Long,
+        intervalConstant: Long
+    ) {
+        alarmManager?.setInexactRepeating(
+            AlarmManager.RTC_WAKEUP,
+            triggerMillis,
+            intervalConstant,
+            buildIntent(notification)
         )
     }
 }
