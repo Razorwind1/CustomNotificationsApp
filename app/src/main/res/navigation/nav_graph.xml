@@ -32,4 +32,5 @@
         android:id="@+id/dialogPopupFragment"
         android:name="edu.uc.hickmadc.customnotifications.ui.main.DialogPopupFragment"
         android:label="DialogPopupFragment" />
+
 </navigation>
