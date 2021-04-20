@@ -1,11 +1,15 @@
 package edu.uc.hickmadc.customnotifications.ui.main
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import edu.uc.hickmadc.customnotifications.dto.Group
 import edu.uc.hickmadc.customnotifications.service.GroupService
 import java.util.logging.Logger
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(
+) : ViewModel() {
 
     var groups: ArrayList<Group> = ArrayList()
     var groupService: GroupService = GroupService()

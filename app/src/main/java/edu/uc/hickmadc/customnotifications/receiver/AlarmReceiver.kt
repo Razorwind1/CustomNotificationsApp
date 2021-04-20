@@ -21,7 +21,7 @@ class AlarmReceiver : BroadcastReceiver() {
     private fun createNotification(context: Context?, title: String, desc: String, notificationId: Int) {
         if (context != null) {
             val builder = NotificationCompat.Builder(context, CUSTOM_NOTIFICATIONS_CHANNEL)
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(title)
                 .setContentText(desc)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)

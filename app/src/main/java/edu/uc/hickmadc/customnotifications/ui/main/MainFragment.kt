@@ -7,15 +7,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import edu.uc.hickmadc.customnotifications.R
 import edu.uc.hickmadc.customnotifications.adapters.NotificationsAdapter
 import edu.uc.hickmadc.customnotifications.databinding.FragmentMainBinding
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
 
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels()
     private val notificationViewModel: NotificationViewModel by viewModels()
 
     override fun onCreateView(
@@ -28,13 +30,12 @@ class MainFragment : Fragment() {
 
         val notificationsAdapter = NotificationsAdapter()
         binding.apply {
-            btnAdd.setOnClickListener {
-                DialogPopupFragment()
-                    .show(childFragmentManager, "customdialog")
-            }
             listView.apply {
                 adapter = notificationsAdapter
                 layoutManager = LinearLayoutManager(requireContext())
+            }
+            fabAddNotif.setOnClickListener {
+                findNavController().navigate(R.id.action_mainFragment_to_dialogPopupFragment)
             }
         }
 
@@ -44,7 +45,7 @@ class MainFragment : Fragment() {
     }
 
     private fun subscribeUi(adapter: NotificationsAdapter) {
-        notificationViewModel.notifications.observe(viewLifecycleOwner) {
+        notificationViewModel.notifications.observe(owner=viewLifecycleOwner) {
             adapter.submitList(it)
         }
     }

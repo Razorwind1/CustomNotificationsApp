@@ -4,6 +4,7 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.SystemClock
 import edu.uc.hickmadc.customnotifications.dto.Notification
 import edu.uc.hickmadc.customnotifications.receiver.AlarmReceiver
 
@@ -24,8 +25,8 @@ class AlarmService(private val context: Context) {
 
     fun setSingleAlarm(triggerMillis: Long, notification: Notification) {
         alarmManager?.set(
-            AlarmManager.RTC_WAKEUP,
-            triggerMillis,
+            AlarmManager.ELAPSED_REALTIME_WAKEUP,
+            SystemClock.elapsedRealtime() + triggerMillis,
             buildIntent(notification)
         )
     }
@@ -35,6 +36,19 @@ class AlarmService(private val context: Context) {
             AlarmManager.RTC_WAKEUP,
             triggerMillis,
             intervalMillis,
+            buildIntent(notification)
+        )
+    }
+
+    fun setInexactRepeatingAlarm(
+        notification: Notification,
+        triggerMillis: Long,
+        intervalConstant: Long
+    ) {
+        alarmManager?.setInexactRepeating(
+            AlarmManager.RTC_WAKEUP,
+            triggerMillis,
+            intervalConstant,
             buildIntent(notification)
         )
     }
