@@ -24,6 +24,14 @@
         <action
             android:id="@+id/action_mainFragment2_to_groupsFragment"
             app:destination="@id/groupsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_dialogPopupFragment2"
+            app:destination="@id/dialogPopupFragment2" />
     </fragment>
+    <dialog
+        android:id="@+id/dialogPopupFragment2"
+        android:name="edu.uc.hickmadc.customnotifications.ui.main.DialogPopupFragment"
+        android:label="DialogPopupFragment" />
+
 
 </navigation>
