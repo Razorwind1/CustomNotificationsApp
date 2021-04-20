@@ -14,10 +14,15 @@ import edu.uc.hickmadc.customnotifications.dto.Notification
 class NotificationsAdapter() :
     ListAdapter<Notification, NotificationsAdapter.NotificationViewHolder>(DiffCallback()) {
 
+
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder {
         val binding =
             ListItemNotificationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
         return NotificationViewHolder(binding)
+
     }
 
     override fun onBindViewHolder(holder: NotificationViewHolder, position: Int) {
@@ -25,23 +30,36 @@ class NotificationsAdapter() :
         holder.bind(currentItem)
     }
 
-    class NotificationViewHolder(private val binding: ListItemNotificationBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+
+    class NotificationViewHolder(
+        private val binding: ListItemNotificationBinding,
+
+
+    ) : RecyclerView.ViewHolder(binding.root) {
+        private var NotificationID= binding.title
+
         init {
 
             binding.setClickListener { view ->
-                Toast.makeText(view.context,"the notification is ${binding.title.text}",Toast.LENGTH_SHORT).show()
-                findNavController(view).navigate(R.id.action_mainFragment_to_managePopupFragment)
+
+                Toast.makeText(view.context,"the notification is $NotificationID",Toast.LENGTH_SHORT).show()
+                findNavController(view).navigate(R.id.action_mainFragment_to_dialogPopupFragment)
+
+
+            }
+            binding.btnDelete.setOnClickListener{view ->
 
 
             }
         }
 
-        fun bind(item: Notification) {
+        fun bind(notification: Notification) {
             binding.apply {
-                title.text = item.title
-                subtext.text= item.subtext
+                title.text = notification.title
+                subtext.text= notification.subtext
                 active.isChecked = false
+
+
                 // TODO add the other fields
             }
         }

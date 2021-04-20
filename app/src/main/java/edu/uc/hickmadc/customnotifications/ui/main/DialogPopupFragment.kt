@@ -9,7 +9,9 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import edu.uc.hickmadc.customnotifications.R
+import edu.uc.hickmadc.customnotifications.dao.NotificationDatabase
 import edu.uc.hickmadc.customnotifications.dto.Notification
 
 
@@ -19,12 +21,19 @@ class DialogPopupFragment: DialogFragment() {
     private lateinit var notificationTitle: TextView
     private lateinit var notificationSubtext: TextView
     private lateinit var notificationDescription: TextView
+    private enum class EditingState{
+        NEW_NOTIFICATION,
+        EXISTING_NOTIFICATION
+    }
     private val notificationViewModel: NotificationViewModel by viewModels(ownerProducer = { requireParentFragment() })
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
+
+
         //gets dialog fragment
+
         rootView = inflater.inflate(R.layout.notification_dialog, container, false)
 
         notificationTitle = rootView.findViewById(R.id.txtTitle)
@@ -44,6 +53,7 @@ class DialogPopupFragment: DialogFragment() {
         val btnTriggers=rootView.findViewById<Button>(R.id.btnaddTriggers)
 
         btnTriggers.setOnClickListener{
+            findNavController().navigate(R.id.action_dialogPopupFragment_to_triggersFragment)
 
         }
         btnClose.setOnClickListener {

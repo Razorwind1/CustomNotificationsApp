@@ -25,11 +25,19 @@
             android:id="@+id/action_mainFragment2_to_groupsFragment"
             app:destination="@id/groupsFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_managePopupFragment"
-            app:destination="@id/managePopupFragment" />
+            android:id="@+id/action_mainFragment_to_dialogPopupFragment"
+            app:destination="@id/dialogPopupFragment" />
     </fragment>
     <dialog
-        android:id="@+id/managePopupFragment"
-        android:name="edu.uc.hickmadc.customnotifications.ui.main.ManagePopupFragment"
-        android:label="ManagePopupFragment" />
+        android:id="@+id/dialogPopupFragment"
+        android:name="edu.uc.hickmadc.customnotifications.ui.main.DialogPopupFragment"
+        android:label="DialogPopupFragment" >
+        <action
+            android:id="@+id/action_dialogPopupFragment_to_triggersFragment"
+            app:destination="@id/triggersFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/triggersFragment"
+        android:name="edu.uc.hickmadc.customnotifications.ui.main.TriggersFragment"
+        android:label="TriggersFragment" />
 </navigation>

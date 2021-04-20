@@ -2,6 +2,7 @@
 
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools= "http://schemas.android.com/tools">
 <data class="">
     <variable
@@ -19,19 +20,19 @@
     android:onClick="@{clickListener}"
     android:foreground="?android:selectableItemBackground"
 
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
-<GridLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:columnCount="4"
-    android:padding="8dp"
-    tools:layout_rowWeight="2"
-
     >
 
-    <!--<CheckBox
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="5"
+        android:padding="8dp"
+        tools:layout_rowWeight="2"
+
+        >
+
+        <!--<CheckBox
         android:id="@+id/active"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,60 +54,67 @@
         tools:text="Example item" />-->
 
 
-    <TextView
-        android:id="@+id/subtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_row="1"
-        android:text="Subtext"
-        android:textColor="#707070"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/subtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:text="Subtext"
+            android:textColor="#707070"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_row="0"
-        android:layout_column="0"
-        android:text="title"
-        android:textColor="#000000"
-        android:textSize="25sp" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:text="title"
+            android:textColor="#000000"
+            android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_row="0"
-        android:layout_column="2"
-        android:paddingStart="20sp"
-        android:paddingEnd="30sp"
-        android:text="time"
-        android:textAlignment="viewEnd"
-        android:textColor="#042EFF"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:paddingStart="20sp"
+            android:paddingEnd="30sp"
+            android:text="time"
+            android:textAlignment="viewEnd"
+            android:textColor="#042EFF"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_row="1"
-        android:layout_column="2"
-        android:paddingStart="20sp"
-        android:paddingEnd="30sp"
-        android:text="date"
-        android:textAlignment="viewEnd"
-        android:textColor="#0E50A1"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:paddingStart="20sp"
+            android:paddingEnd="30sp"
+            android:text="date"
+            android:textAlignment="viewEnd"
+            android:textColor="#0E50A1"
+            android:textSize="18sp" />
 
-    <Switch
-        android:id="@+id/active"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_row="0"
-        android:layout_rowSpan="1"
-        android:layout_rowWeight="0"
-        android:layout_column="3"
-        android:paddingStart="10sp" />
-</GridLayout>
+        <Switch
+            android:id="@+id/active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_rowSpan="1"
+            android:layout_rowWeight="0"
+            android:layout_column="4"
+            android:paddingStart="10sp" />
+
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            app:srcCompat="@drawable/ic_delete" />
+    </GridLayout>
 </androidx.cardview.widget.CardView>
     </layout>

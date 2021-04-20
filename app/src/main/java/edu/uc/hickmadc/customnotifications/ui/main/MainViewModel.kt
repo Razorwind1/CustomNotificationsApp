@@ -1,5 +1,6 @@
 package edu.uc.hickmadc.customnotifications.ui.main
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import edu.uc.hickmadc.customnotifications.dto.Group
 import edu.uc.hickmadc.customnotifications.service.GroupService
@@ -9,6 +10,8 @@ class MainViewModel : ViewModel() {
 
     var groups : ArrayList<Group> = ArrayList()
     var groupService : GroupService = GroupService()
+
+
 
 
 
