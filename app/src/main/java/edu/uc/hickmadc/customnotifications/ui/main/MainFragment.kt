@@ -28,7 +28,11 @@ class MainFragment : Fragment() {
         val binding = FragmentMainBinding.inflate(inflater, container, false)
         context ?: return binding.root
 
-        val notificationsAdapter = NotificationsAdapter()
+        val notificationsAdapter = NotificationsAdapter(onEdit = { notification ->
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToDialogPopupFragment(notification.notificationId)
+            )
+        })
         binding.apply {
             listView.apply {
                 adapter = notificationsAdapter
@@ -45,7 +49,7 @@ class MainFragment : Fragment() {
     }
 
     private fun subscribeUi(adapter: NotificationsAdapter) {
-        notificationViewModel.notifications.observe(owner=viewLifecycleOwner) {
+        notificationViewModel.notifications.observe(owner = viewLifecycleOwner) {
             adapter.submitList(it)
         }
     }

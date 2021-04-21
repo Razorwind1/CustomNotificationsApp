@@ -1,23 +1,20 @@
 package edu.uc.hickmadc.customnotifications.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import edu.uc.hickmadc.customnotifications.databinding.ListItemNotificationBinding
 import edu.uc.hickmadc.customnotifications.dto.Notification
 
-class NotificationsAdapter :
+class NotificationsAdapter(private var onEdit: (Notification) -> Unit) :
     ListAdapter<Notification, NotificationsAdapter.NotificationViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder {
         val binding =
             ListItemNotificationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return NotificationViewHolder(binding)
+        return NotificationViewHolder(binding, onEdit)
     }
 
     override fun onBindViewHolder(holder: NotificationViewHolder, position: Int) {
@@ -25,19 +22,20 @@ class NotificationsAdapter :
         holder.bind(currentItem)
     }
 
-    class NotificationViewHolder(private val binding: ListItemNotificationBinding) :
+    class NotificationViewHolder(
+        private val binding: ListItemNotificationBinding,
+        private var onEdit: (Notification) -> Unit
+    ) :
         RecyclerView.ViewHolder(binding.root) {
-        init {
-            binding.setClickListener {
-                    view ->  Toast.makeText(view.context,"hello${position}", Toast.LENGTH_SHORT).show()
-            }
-        }
 
         fun bind(item: Notification) {
             binding.apply {
                 title.text = item.title
-                subtext.text= item.subtext
+                subtext.text = item.subtext
                 active.isChecked = false
+                grid.setOnClickListener {
+                    onEdit(item)
+                }
                 // TODO add the other fields
             }
         }
