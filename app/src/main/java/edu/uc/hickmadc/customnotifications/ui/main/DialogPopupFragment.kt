@@ -120,7 +120,8 @@ class DialogPopupFragment : DialogFragment(), AdapterView.OnItemSelectedListener
         time: String,
         interval: String
     ) {
-        val notification = Notification(title, "", desc)
+        val notification =
+            Notification(title = title, desc = desc, date = date, time = time, interval = interval)
         val now = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
         }
@@ -173,7 +174,7 @@ class DialogPopupFragment : DialogFragment(), AdapterView.OnItemSelectedListener
                 }
             }
         }
-        notificationViewModel.saveNotification(Notification(title, "", desc))
+        notificationViewModel.saveNotification(notification)
     }
 
     private fun triggersToday(triggerDate: Calendar, currentDate: Calendar): Boolean {
