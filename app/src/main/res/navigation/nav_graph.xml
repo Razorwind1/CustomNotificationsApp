@@ -39,5 +39,10 @@
     <fragment
         android:id="@+id/dialogPopupFragment"
         android:name="edu.uc.hickmadc.customnotifications.ui.main.DialogPopupFragment"
-        android:label="DialogPopupFragment" />
+        android:label="DialogPopupFragment" >
+        <argument
+            android:name="notificationId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>

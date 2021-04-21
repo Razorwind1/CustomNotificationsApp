@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import edu.uc.hickmadc.customnotifications.R
 import edu.uc.hickmadc.customnotifications.databinding.NotificationDialogBinding
@@ -47,6 +48,7 @@ class DialogPopupFragment : DialogFragment(), AdapterView.OnItemSelectedListener
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spnInterval.adapter = adapter
         }
+        val safeArgs: DialogPopupFragmentArgs by navArgs()
         binding.apply {
             btnClose.setOnClickListener {
                 findNavController().navigateUp()
@@ -58,6 +60,7 @@ class DialogPopupFragment : DialogFragment(), AdapterView.OnItemSelectedListener
                 )
                 findNavController().navigateUp()
             }
+            txtTitle.setText(safeArgs.notificationId.toString())
             editTextDate.setText(DateFormat.format("MM/dd/yyyy", Calendar.getInstance()))
             editTextTime.setText(DateFormat.format("HH:mm", Calendar.getInstance()))
         }
