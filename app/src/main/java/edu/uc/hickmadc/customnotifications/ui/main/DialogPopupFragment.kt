@@ -73,8 +73,8 @@ class DialogPopupFragment : DialogFragment(), AdapterView.OnItemSelectedListener
                     binding.txtDescription.setText(notificationItem.desc)
                     binding.editTextDate.setText(notificationItem.date)
                     binding.editTextTime.setText(notificationItem.time)
+                    //TODO: set spinner value.
                     notification = notificationItem
-                    TODO("set interval spinner value")
                 }
             binding.btnConfirm.setOnClickListener {
                 notificationViewModel.updateNotification(
