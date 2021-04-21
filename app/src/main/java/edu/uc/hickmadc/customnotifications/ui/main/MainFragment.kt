@@ -35,7 +35,9 @@ class MainFragment : Fragment() {
                 layoutManager = LinearLayoutManager(requireContext())
             }
             fabAddNotif.setOnClickListener {
+
                 findNavController().navigate(R.id.action_mainFragment_to_dialogPopupFragment)
+
             }
         }
 

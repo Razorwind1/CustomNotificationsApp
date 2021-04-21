@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import edu.uc.hickmadc.customnotifications.databinding.ListItemNotificationBinding
 import edu.uc.hickmadc.customnotifications.dto.Notification
+import edu.uc.hickmadc.customnotifications.ui.main.MainFragmentDirections
 
 class NotificationsAdapter :
     ListAdapter<Notification, NotificationsAdapter.NotificationViewHolder>(DiffCallback()) {
@@ -30,6 +31,7 @@ class NotificationsAdapter :
         init {
             binding.setClickListener {
                     view ->  Toast.makeText(view.context,"hello${position}", Toast.LENGTH_SHORT).show()
+
             }
         }
 

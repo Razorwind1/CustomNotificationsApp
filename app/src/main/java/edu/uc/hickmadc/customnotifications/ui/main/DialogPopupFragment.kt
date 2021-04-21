@@ -10,7 +10,9 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.compose.navArgument
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import edu.uc.hickmadc.customnotifications.R
 import edu.uc.hickmadc.customnotifications.databinding.NotificationDialogBinding
@@ -35,6 +37,9 @@ class DialogPopupFragment : DialogFragment(), AdapterView.OnItemSelectedListener
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
+
+
+
         _binding = NotificationDialogBinding.inflate(inflater, container, false)
         context ?: return binding.root
         alarmService = AlarmService(requireContext())
