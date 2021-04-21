@@ -31,8 +31,10 @@ class NotificationsAdapter(private var onEdit: (Notification) -> Unit) :
         fun bind(item: Notification) {
             binding.apply {
                 title.text = item.title
-                subtext.text = item.subtext
+                desc.text = item.desc
                 active.isChecked = false
+                time.text = item.time
+                day.text = item.date
                 grid.setOnClickListener {
                     onEdit(item)
                 }

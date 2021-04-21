@@ -1,11 +1,11 @@
 package edu.uc.hickmadc.customnotifications.dao
 
-import androidx.room.Dao
 import androidx.room.Query
+import androidx.room.Dao
 import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Update
 import androidx.room.Delete
+import androidx.room.OnConflictStrategy
 import edu.uc.hickmadc.customnotifications.dto.Notification
 import kotlinx.coroutines.flow.Flow
 
@@ -14,6 +14,9 @@ interface INotificationDAO {
 
     @Query("SELECT * FROM notification")
     fun getAllNotifications(): Flow<List<Notification>>
+
+    @Query("SELECT * FROM notification WHERE notificationId = :id")
+    suspend fun get(id: Int): Notification
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(notification: Notification)

@@ -33,12 +33,27 @@ class DialogPopupFragment : DialogFragment(), AdapterView.OnItemSelectedListener
 
     private var interval = "Never"
 
+    private enum class EditingState {
+        NEW_NOTIF,
+        EXISTING_NOTIF
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = NotificationDialogBinding.inflate(inflater, container, false)
         context ?: return binding.root
         alarmService = AlarmService(requireContext())
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        var notification: Notification? = null
+        val args: DialogPopupFragmentArgs by navArgs()
+        val editingState =
+            if (args.notificationId > 0) EditingState.EXISTING_NOTIF
+            else EditingState.NEW_NOTIF
 
         ArrayAdapter.createFromResource(
             requireContext(),
@@ -48,39 +63,76 @@ class DialogPopupFragment : DialogFragment(), AdapterView.OnItemSelectedListener
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spnInterval.adapter = adapter
         }
-        val safeArgs: DialogPopupFragmentArgs by navArgs()
+
+        if (editingState == EditingState.EXISTING_NOTIF) {
+            // Request to edit an existing item, whose id was passed in as an argument.
+            // Retrieve that item and populate the UI with its details
+            notificationViewModel.get(args.notificationId)
+                .observe(viewLifecycleOwner) { notificationItem ->
+                    binding.txtTitle.setText(notificationItem.title)
+                    binding.txtDescription.setText(notificationItem.desc)
+                    binding.editTextDate.setText(notificationItem.date)
+                    binding.editTextTime.setText(notificationItem.time)
+                    notification = notificationItem
+                    TODO("set interval spinner value")
+                }
+            binding.btnConfirm.setOnClickListener {
+                notificationViewModel.updateNotification(
+                    Notification(
+                        title = binding.txtTitle.text.toString(),
+                        desc = binding.txtDescription.text.toString(),
+                        date = binding.editTextDate.text.toString(),
+                        time = binding.editTextTime.text.toString(),
+                        interval = interval,
+                        notificationId = args.notificationId
+                    )
+                )
+                findNavController().navigateUp()
+            }
+        } else {
+            with(binding) {
+                btnConfirm.setOnClickListener {
+                    saveNotification(
+                        binding.txtTitle.text.toString(),
+                        binding.txtDescription.text.toString(),
+                        binding.editTextDate.text.toString(),
+                        binding.editTextTime.text.toString(),
+                        interval
+                    )
+                    findNavController().navigateUp()
+                }
+                editTextDate.setText(DateFormat.format("MM/dd/yyyy", Calendar.getInstance()))
+                editTextTime.setText(DateFormat.format("HH:mm", Calendar.getInstance()))
+            }
+        }
+
         binding.apply {
             btnClose.setOnClickListener {
                 findNavController().navigateUp()
             }
-            btnConfirm.setOnClickListener {
-                saveNotification(
-                    binding.txtTitle.text.toString(),
-                    binding.txtDescription.text.toString()
-                )
-                findNavController().navigateUp()
-            }
-            txtTitle.setText(safeArgs.notificationId.toString())
-            editTextDate.setText(DateFormat.format("MM/dd/yyyy", Calendar.getInstance()))
-            editTextTime.setText(DateFormat.format("HH:mm", Calendar.getInstance()))
         }
-        return binding.root
     }
 
-    private fun saveNotification(title: String, desc: String) {
-        val notif = Notification(title, "", desc)
+    private fun saveNotification(
+        title: String,
+        desc: String,
+        date: String,
+        time: String,
+        interval: String
+    ) {
+        val notification = Notification(title, "", desc)
         val now = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
         }
-        val dateText = binding.editTextDate.text.toString().split("/")
-        val timeText = binding.editTextTime.text.toString().split(":")
+        val dateParts = date.split("/")
+        val timeParts = time.split(":")
         val triggerDate: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.MONTH, parseInt(dateText[0]) - 1)
-            set(Calendar.DAY_OF_MONTH, parseInt(dateText[1]))
-            set(Calendar.YEAR, parseInt(dateText[2]))
-            set(Calendar.HOUR_OF_DAY, parseInt(timeText[0]))
-            set(Calendar.MINUTE, parseInt(timeText[1]))
+            set(Calendar.MONTH, parseInt(dateParts[0]) - 1)
+            set(Calendar.DAY_OF_MONTH, parseInt(dateParts[1]))
+            set(Calendar.YEAR, parseInt(dateParts[2]))
+            set(Calendar.HOUR_OF_DAY, parseInt(timeParts[0]))
+            set(Calendar.MINUTE, parseInt(timeParts[1]))
             set(Calendar.SECOND, 0)
         }
 
@@ -92,19 +144,19 @@ class DialogPopupFragment : DialogFragment(), AdapterView.OnItemSelectedListener
                         .warning((triggerDate.timeInMillis - now.timeInMillis).toString())
                     alarmService.setSingleAlarm(
                         (triggerDate.timeInMillis - now.timeInMillis),
-                        notif
+                        notification
                     )
                 }
                 "Hourly" -> {
                     alarmService.setInexactRepeatingAlarm(
-                        notif,
+                        notification,
                         System.currentTimeMillis(),
                         AlarmManager.INTERVAL_HOUR
                     )
                 }
                 "Daily" -> {
                     alarmService.setInexactRepeatingAlarm(
-                        notif,
+                        notification,
                         System.currentTimeMillis(),
                         AlarmManager.INTERVAL_DAY
                     )

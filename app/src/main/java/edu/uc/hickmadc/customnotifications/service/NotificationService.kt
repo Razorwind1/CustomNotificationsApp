@@ -12,6 +12,8 @@ class NotificationService @Inject constructor(
 
     fun getNotifications() = notificationDao.getAllNotifications()
 
+    suspend fun get(id: Int) = notificationDao.get(id)
+
     suspend fun save(notification: Notification) {
         notificationDao.save(notification)
     }

@@ -28,28 +28,44 @@ abstract class NotificationDatabase : RoomDatabase() {
                     Notification(
                         "Notification 3",
                         "A third notification",
-                        "A third description"
+                        "A third description",
+                        "04/20/2021",
+                        "",
+                        "18:30",
+                        "Never"
                     )
                 )
                 dao.insert(
                     Notification(
                         "Notification 2",
                         "A second notification",
-                        "A second description"
+                        "A second description",
+                        "03/28/2021",
+                        "",
+                        "19:00",
+                        "Daily"
                     )
                 )
                 dao.insert(
                     Notification(
                         "Notification 1",
                         "A notification",
-                        "A description"
+                        "A description",
+                        "04/12/2021",
+                        "",
+                        "09:30",
+                        "Monthly"
                     )
                 )
                 dao.insert(
                     Notification(
                         "Notification 4 ",
                         "A fourth notification",
-                        "A  fourth description"
+                        "A  fourth description",
+                        "04/15/2021",
+                        "",
+                        "12:55",
+                        "Never"
                     )
                 )
             }
